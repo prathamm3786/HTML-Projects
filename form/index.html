@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row d-flex justify-between">
+            <button id="hide"> Hide Form</button>
+            <button id="show"> Show Form</button>
+        </div>
+    </div>
+    <section class="login">
+        <div class="container">
+            <div class="row">
+                <div class="form">  
+                    <form action="">
+                         <h1>Login</h1>
+                         <div class="input-box">
+                            <input type="text" placeholder="Enter your name" required>
+                            <i class="fa-solid fa-user"></i>
+                         </div>
+                         <div class="input-box">
+                            <input type="password" placeholder="Password" required>
+                            <i class="fa-solid fa-lock" ></i>
+                         </div>
+                         <div class="remember">
+                            <label><input type="checkbox"> Remember Me </label>
+                            <a href="#"> Forgot Password</a>
+                         </div>
+                         <button type="submit" class="btn">Login</button>
+                         <div class="register">
+                            <p>don't have an account ?</p>
+                            <a href="#"> Register </a>
+                         </div>
+                   </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+              $(document).ready(function(){
+                $("#hide").click( function(){
+                    $(".form").hide(500);
+                });
+                $("#show").click( function(){
+                    $(".form").show(500);
+                });
+          
+            })
+
+    </script>
+</body>
+</html> 

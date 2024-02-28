@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syndash - Admin panel
+  </title>
+  <!-- css link -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- fontawesome link -->
+  <link rel="stylesheet" href="assets/css/all.min.css">
+  <!-- fonts link -->
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <!-- favicon link -->
+  <link rel="shortcut icon" href="assets/img/logo-icon.png" type="image/x-icon">
+  <!-- scss link -->
+  <link rel="stylesheet" href="assets/css/side.css">
+  <link rel="stylesheet" href="assets/css/media.css">
+  <!-- extra link -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="https://unpkg.com/css-pro-layout@1.1.0/dist/css/css-pro-layout.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <script>
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+      )
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+  <script>
+    // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+    // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+    var _seed = 42;
+    Math.random = function () {
+      _seed = _seed * 16807 % 2147483647;
+      return (_seed - 1) / 2147483646;
+    };
+  </script>
+
+</head>
+
+<body>
+  <div class="layout has-sidebar fixed-sidebar fixed-header">
+    <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+      <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
+      <div class="image-wrapper">
+        <img src="assets/images/sidebar-bg.jpg" alt="sidebar background" />
+      </div>
+      <div class="sidebar-layout">
+        <div class="sidebar-header">
+          <div class="pro-sidebar-logo">
+            <div class="container-logo">
+              <img src="assets/img/logo-icon.png" width="40px" />
+            </div>
+            <h5>Syndash</h5>
+          </div>
+        </div>
+        <div class="sidebar-content">
+          <nav class="menu open-current-submenu">
+            <ul>
+
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-house" style="color: #dc3545;"></i>
+                  </span>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Analytics</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Sales</span>
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-header"><span>Web Apps</span></li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-envelope" style="color: #dc3545;"></i>
+                  </span>
+                  <span class="menu-title">Email</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-comments" style="color: #198754;"></i>
+                  </span>
+                  <span class="menu-title">Chat Box</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-file" style="color: #ffc107;"></i>
+                  </span>
+                  <span class="menu-title">File Manager</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <img src="assets/img/contact.png" alt="" srcset="">
+                  </span>
+                  <span class="menu-title">Contatcs</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-calendar-check" style="color: #198754;"></i>
+                  </span>
+                  <span class="menu-title">Todo List</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-file-invoice" style="color: #1f71ff;"></i>
+                  </span>
+                  <span class="menu-title">Invoice</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-calendar" style="color: #830101;"></i>
+                  </span>
+                  <span class="menu-title">Calender</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-header"><span>UI Elements</span></li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-ghost" style="color: #0355e2;"></i>
+                  </span>
+                  <span class="menu-title">Widgets</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-spa" style="color: #30d4e4;"></i>
+                  </span>
+                  <span class="menu-title">Components</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Alerts</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Badge</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Buttons</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Cards</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Carousal</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Acordians</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">List Group</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Media Objects</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Model</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Navs</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Navbar</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Pagination</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Popovers & Tooltips</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Progress</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Spinners</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Notifications</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Avtars & Chips</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-repeat" style="color: #ca9805;"></i>
+                  </span>
+                  <span class="menu-title">Content</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Grid Syestem</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Typography</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Text Utilties</span>
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-hand-holding-medical" style="color: #a24f30;"></i>
+                  </span>
+                  <span class="menu-title">Icons</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Line Icons</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Boxicons</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Feather Icons</span>
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-header"><span>Forms & Tables</span></li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-comment" style="color: #ff3030;"></i>
+                  </span>
+                  <span class="menu-title">Forms</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Form Elements</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Input Groups</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Forms Layouts</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Form Validation</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Form Wizard</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Text Editor</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">File Upload</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Date Pickers</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Select2</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-grip-vertical" style="color: #ff007c;"></i>
+                  </span>
+                  <span class="menu-title">Tables</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Basic Table</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Data Table</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Editable Table</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-header"><span>Pages</span></li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-lock" style="color: #4caf50;"></i>
+                  </span>
+                  <span class="menu-title">Authentication</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Login</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Register</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Forgot Password</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Reset Password</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Lock Screen</span>
+                      </a>
+                    </li>
+
+
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-circle-user" style="color: #ff8b01;"></i>
+                  </span>
+                  <span class="menu-title">User Profile</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-video" style="color: #673ab7;"></i>
+                  </span>
+                  <span class="menu-title">TimeLine</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: #009688;"></i>
+                  </span>
+                  <span class="menu-title">Errors</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">404 Errors</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">500 Errors </span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Coming soon </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-circle-question" style="color: #03a9f4;"></i>
+                  </span>
+                  <span class="menu-title">FAQ</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-gem" style="color: #c37458;"></i>
+                  </span>
+                  <span class="menu-title">Pricing</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-header"><span>CHARTS & MAPS</span></li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-chart-line" style="color: #5d1ed2;"></i>
+                  </span>
+                  <span class="menu-title">Chart</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Apex</span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Chartjs </span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Highcharts </span>
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-map" style="color: #30b4e4;"></i>
+                  </span>
+                  <span class="menu-title">Maps</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Google Maps </span>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Vector Maps </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-header"><span>OTHERS</span></li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-bars" style="color: #ca9805;"></i>
+                  </span>
+                  <span class="menu-title">Menu Levels</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+                    <li class="menu-item">
+                      <a href="#">
+                        <span class="menu-title">Levels one</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-regular fa-folder" style="color: #a24f30;"></i>
+                  </span>
+                  <span class="menu-title"> Documentation</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+                  </ul>
+                </div>
+              </li>
+              <li class="menu-item sub-menu">
+                <a href="#">
+                  <span class="menu-icon">
+                    <i class="fa-solid fa-headset" style="color: #5f5f5f;"></i>
+                  </span>
+                  <span class="menu-title"> Support</span>
+                </a>
+                <div class="sub-menu-list">
+                  <ul>
+
+                  </ul>
+                </div>
+              </li>
+
+            </ul>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+    <div class="layout">
+      <main class="content">
+        <div>
+          <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+            <i class="ri-menu-line ri-xl"></i>
+          </a>
+        </div>
+        <header>
+          <div class="w-12 d-flex align-center py-0">
+            <div class="w-7 w-lg-12 w-xs-11 w-sm-11 w-md-12 w-xl-6 pyt-12">
+              <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="w-5 w-lg-12 w-xs-12 w-sm-12 w-md-12 w-xl-6 lg-between">
+              <ul class="d-flex align-center xs-evenly pyt-12 md-evenly">
+                <li class="w-sm-6 w-md-3 w-lg-1 justify-center d-flex pyt-12"><button class=" js-toggle-fullscreen-btn toggle-fullscreen-btn" aria-label="Enter fullscreen mode" hidden>
+                    <svg class="toggle-fullscreen-svg" width="28" height="28" viewBox="-2 -2 28 28">
+                      <g class="icon-fullscreen-enter">
+                        <path d="M 2 9 v -7 h 7" />
+                        <path d="M 22 9 v -7 h -7" />
+                        <path d="M 22 15 v 7 h -7" />
+                        <path d="M 2 15 v 7 h 7" />
+                      </g>
+
+                      <g class="icon-fullscreen-leave">
+                        <path d="M 24 17 h -7 v 7" />
+                        <path d="M 0 17 h 7 v 7" />
+                        <path d="M 0 7 h 7 v -7" />
+                        <path d="M 24 7 h -7 v -7" />
+                      </g>
+                    </svg>
+                  </button></li>
+                <li class="w-sm-6 w-md-3 w-lg-1 justify-center d-flex pyt-12">
+                  <div class="bell">
+                    <div class="notification"></div>
+                    <svg class="bell-icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 545 520">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: none;
+                            stroke: #4c5158;
+                            stroke-miterlimit: 10;
+                            stroke-width: 48px;
+                          }
+                        </style>
+                      </defs>
+                      <title>Bell</title>
+                      <path class="cls-1"
+                        d="M715.5,941.51v-172c0-108.8-88.2-197-197-197h0c-108.8,0-197,88.2-197,197v172H321A51.5,51.5,0,0,0,269.5,993h0a51.5,51.5,0,0,0,51.5,51.5H715A51.5,51.5,0,0,0,766.5,993h0A51.49,51.49,0,0,0,715.5,941.51Z"
+                        transform="translate(-245.5 -548.5)" />
+                      <div class="bell-icon__circle"></div>
+                    </svg>
+                  </div>
+                </li>
+                <li class="w-sm-6 w-md-3 w-lg-5 align-center d-flex pyt-12">
+                  <div class="username-container">
+                    <div class="profile-container">
+                      <div class="profile-img">
+                        <img src="assets/img/profile.jpg" alt="Profile Picture">
+                      </div>
+                      <div class="profile-description">
+                        <p class="user-title">Pratham P</p>
+                        <p class="username">@justprathamm_</p>
+                      </div>
+                    </div>
+                    <div class="menu-bar">
+                      <i class="bi bi-three-dots"></i>
+                    </div>
+                  </div>
+                </li>
+                <li class="w-sm-6 w-md-3 w-lg-5 justify-center d-flex pyt-12">
+                  <div class="js">
+                    <div class="language-picker js-language-picker" data-trigger-class="btn btn--subtle">
+                      <form action="" class="language-picker__form">
+                        <label for="language-picker-select">Select your language</label>
+                        <select name="language-picker-select" id="language-picker-select">
+                          <option lang="de" value="deutsch">Deutsch</option>
+                          <option lang="en" value="english" selected>English</option>
+                          <option lang="fr" value="francais">Français</option>
+                          <option lang="it" value="italiano">Italiano</option>
+                        </select>
+                      </form>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </header>
+        <div class="w-12 d-flex justify-between mar-12">
+          <div class="w-4 w-xs-12 w-sm-12 w-md-12 w-lg-4 pyt-12 py-0 w-xl-4">
+            <div class="wrapper">
+              <p>Sessions</p>
+              <h2>501</h2>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="w-4 w-xs-12 w-sm-12 w-md-12 w-lg-4 pyt-12 py-0 w-xl-4">
+            <div class="wrapper">
+              <p>Visitors</p>
+              <h2>409</h2>
+              <canvas id="myChart1"></canvas>
+            </div>
+          </div>
+          <div class="w-4 w-xs-12 w-sm-12 w-md-12 w-lg-4 pyt-12 py-0 w-xl-4">
+            <div class="wrapper">
+              <p>Page Views</p>
+              <h2>2,346</h2>
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+        </div>
+        <section>
+          <div class="d-flex justify-between">
+            <div class="w-8 w-xs-12 w-sm-12 w-md-12 w-lg-8 w-xl-8 pyt-12">
+
+              <div id="bars"></div>
+            </div>
+            <div class="w-4 w-xs-12 w-sm-12 w-md-12 w-lg-4 w-xl-4 pyt-12">
+
+              <div id="pie"></div>
+            </div>
+          </div>
+        </section>
+        <section class="sponcer">
+          <div class="w-12 d-flex">
+            <div class="w-6 w-xs-12 w-sm-12  w-md-12 w-xl-6 pyt-12">
+              <div class="icons d-flex justify-evenly">
+                <div class="w-2 w-xs-6 w-lg-2 w-md-4 w-xl-2">
+                  <i class="fa-regular fa-clock"></i>
+                  <h2>2m 28s</h2>
+                  <p>Avg. Time on Site</p>
+                </div>
+                <div class="w-2 w-xs-6 w-sm-6 w-lg-2 w-md-4 w-xl-2">
+                  <i class="fa-solid fa-bookmark"></i>
+                  <h2>4.68</h2>
+                  <p>Pages/Session</p>
+                </div>
+                <div class="w-2 w-xs-6 w-sm-6 w-lg-2 w-md-4 w-xl-2">
+                  <i class="fa-solid fa-lightbulb"></i>
+                  <h2>78%</h2>
+                  <p>New Sessions</p>
+                </div>
+                <div class="w-2 w-xs-6 w-sm-6 w-lg-2 w-md-4 w-xl-2">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <h2>23.4%</h2>
+                  <p>Bounce Rate</p>
+                </div>
+                <div class="w-2 w-xs-6 w-sm-6 w-lg-2 w-md-4 w-xl-2">
+                  <i class="fa-solid fa-user-group"></i>
+                  <h2>4,286</h2>
+                  <p>New Users</p>
+                </div>
+                <div class="w-2 w-xs-6 w-sm-6 w-lg-2 w-md-4 w-xl-2">
+                  <i class="fa-solid fa-cloud-arrow-down"></i>
+                  <h2>78%</h2>
+                  <p>Downloads</p>
+                </div>
+              </div>
+            </div>
+              
+              <div class="w-6 w-xs-12 w-sm-12 w-md-12 w-xl-6 pyt-12">
+                <div class="social">
+                  <ul>
+                    <li class="d-flex align-center justify-between">
+                      <h2>Social Media Traffic</h2>
+                      <p>Total Visits:874</p>
+
+                    </li>
+                    <li class="d-flex align-center justify-between">
+                      <div class="d-flex align-center"><i class="fa-brands fa-youtube"></i>
+                        <p>YouTube</p>
+                      </div>
+
+                      <span>298</span>
+                    </li>
+                    <li class="d-flex align-center justify-between">
+                      <div class="d-flex align-center"><i class="fa-brands fa-facebook"></i>
+                        <p>Facebook</p>
+                      </div>
+
+
+                      <span>324</span>
+                    </li>
+                    <li class="d-flex align-center justify-between">
+                      <div class="d-flex align-center"><i class="fa-brands fa-linkedin"></i>
+                        <p>Linkedin</p>
+                      </div>
+
+
+                      <span>127</span>
+                    </li>
+                    <li class="d-flex align-center justify-between">
+                      <div class="d-flex align-center"><i class="fa-brands fa-square-twitter"></i>
+                        <p>Twitter</p>
+                      </div>
+
+
+                      <span>325</span>
+                    </li>
+                    <li class="d-flex align-center justify-between">
+                      <div class="d-flex align-center"><i class="fa-brands fa-square-tumblr"></i>
+                        <p>Tumblr</p>
+                      </div>
+
+
+                      <span>287</span>
+                    </li>
+                    <li class="d-flex align-center justify-between">
+                      <div class="d-flex align-center"><i class="fa-brands fa-square-dribbble"></i>
+                        <p>Dribbble</p>
+                      </div>
+
+
+                      <span>154</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            
+          </div>
+        </section>
+        <section class="geographic">
+          <div class="w-12 d-flex">
+            <div class="w-8 w-xs-12 w-sm-12 pyt-12 py-0 w-md-12 w-xl-8">
+              <div class="map w-12">
+                <h2>Geographic</h2>
+                <div id="chartDiv" >
+                </div>
+              </div>
+            </div>
+
+            <div class="w-4 w-xs-12 w-sm-12 pyt-12 py-0 w-md-12 w-xl-4">
+              <div class="socials">
+                <div class="media d-flex justify-between align-center">
+                  <h2>Top countries</h2>
+                  <span>Total Visits: 9587</span>
+                </div>
+                <div class="table-countries">
+                  <table cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><img src="assets/img/india.png" width="40px" alt=""></td>
+                      <td width="92%">India</td>
+                      <td width="3%">647</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/img/united-states-of-america.png" width="32px" height="32px" alt=""></td>
+                      <td>United States</td>
+                      <td>435</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/img/vietnam.png" alt=""></td>
+                      <td>Vietnam</td>
+                      <td>287</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/img/australia.png" alt=""></td>
+                      <td>Australia</td>
+                      <td>432</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/img/angola.png" alt=""></td>
+                      <td>Angola</td>
+                      <td>345</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/img/aland-islands.png" alt=""></td>
+                      <td>Aland Islands</td>
+                      <td>134</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/img/argentina.png" alt=""></td>
+                      <td>Argentina</td>
+                      <td>147</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/img/belgium.png" alt=""></td>
+                      <td>Belgium</td>
+                      <td>210</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+        <div class="w-12 d-flex">
+          <div class="w-4 w-xs-12 w-sm-12 pyt-12 mar-12 w-md-12 w-xl-4">
+            <div class="browser">
+              <div class="media d-flex justify-between align-center">
+                <h2>Browser Statistics</h2>
+              </div>
+              <div class="table-countries">
+                <table cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td><img src="assets/img/chrome.png" width="35px" height="35px" alt="">
+                    </td>
+                    <td width="92%">587 <span>Chrome</span></td>
+                    <td width="3%">24.3%</td>
+                  </tr>
+                  <tr>
+                    <td><img src="assets/img/firefox.png" width="35px" height="35px" alt="">
+                    </td>
+                    <td>358 <span>Firefox</span></td>
+                    <td>12.3%</td>
+                  </tr>
+                  <tr>
+                    <td><img src="assets/img/edge.png" width="35px" height="35px" alt=""></td>
+                    <td>867 <span>Edge</span></td>
+                    <td>24.3%</td>
+                  </tr>
+                  <tr>
+                    <td><img src="assets/img/opera.png" width="35px" height="35px" alt=""></td>
+                    <td>752 <span>Opera</span></td>
+                    <td>27.3%</td>
+                  </tr>
+                  <tr>
+                    <td><img src="assets/img/safari.png" width="35px" height="35px" alt="">
+                    </td>
+                    <td>586 <span>Safari</span></td>
+                    <td>14.3%</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-4 w-xs-12 w-sm-12 pyt-12 mar-12 w-md-12 w-xl-4">
+            <div class="browser">
+              <div class="media d-flex justify-between align-center">
+                <h2>Traffic Sources</h2>
+              </div>
+              <div class="Sources d-flex+">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td>Source</td>
+                    <td width="25%" align="center">Visitors</td>
+                    <td width="25%">Bounce Rate</td>
+                  </tr>
+                  <tr bgcolor="#d3d0d0">
+                    <td>(direct)</td>
+                    <td align="center">56</td>
+                    <td align="center">10%</td>
+                  </tr>
+                  <tr>
+                    <td>google</td>
+                    <td align="center">29</td>
+                    <td align="center">12%</td>
+                  </tr>
+                  <tr bgcolor="#d3d0d0">
+                    <td>linkedin.com</td>
+                    <td align="center">68</td>
+                    <td align="center">33%</td>
+                  </tr>
+                  <tr>
+                    <td>bing</td>
+                    <td align="center">14</td>
+                    <td align="center">24%</td>
+                  </tr>
+                  <tr bgcolor="#d3d0d0">
+                    <td>facebook.com</td>
+                    <td align="center">87</td>
+                    <td align="center">22%</td>
+                  </tr>
+                  <tr>
+                    <td>twitter.com</td>
+                    <td align="center">88</td>
+                    <td align="center">43%</td>
+                  </tr>
+                  <tr bgcolor="#d3d0d0">
+                    <td>other</td>
+                    <td align="center">98</td>
+                    <td align="center">27%</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-4 w-xs-12 w-sm-12 pyt-12 mar-12 w-md-12 w-xl-4">
+            <div class="browser">
+              <div class="media d-flex justify-between align-center">
+                <h2>Visitors By Gender</h2>
+              </div>
+              <div id="app1"></div>
+
+            </div>
+
+          </div>
+        </div>
+        </section>
+
+          
+
+          <section>
+            <div class="w-12">
+            <div class="table">
+
+              <div class="tabletital">
+                <h3>Top pages by views</h3>
+              </div>
+
+              <div class="table-page">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tr border="2">
+                    <td>#</td>
+                    <td colspan="8">Title</td>
+                    <td align="center">Views</td>
+                    <td align="center">Avg. Time</td>
+                    <td align="center">Bounce Rate</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td colspan="8"><a href="https://themeforest.net/item/synadmin-bootstrap4-admin-template/29014766 " target="_blank">
+                        https://themeforest.net/item/rukada-responsive-bootstrap-4-admin-template/22820477</a>
+                    </td>
+                    <td align="center">660 </td>
+                    <td align="center">55s</td>
+                    <td align="center">3.6%</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td colspan="8"><a href="https://codervent.com/wipe-admin-dark/dashboard/v3" target="_blank"> https://codervent.com/wipe-admin-dark/dashboard/v3</a>
+                    </td>
+                    <td align="center">352</td>
+                    <td align="center">16s</td>
+                    <td align="center">8.4%</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td colspan="8"><a href="https://themeforest.net/item/dashtreme-multipurpose-bootstrap4-admin-template/23059455"
+                        target="_blank">https://themeforest.net/item/dashtreme-multipurpose-bootstrap4-admin-template/23059455</a>
+                    </td>
+                    <td align="center">101</td>
+                    <td align="center">10s</td>
+                    <td align="center">6.7%</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td colspan="8"><a href="https://themeforest.net/item/rukada-responsive-bootstrap-4-admin-template/22820477"
+                        target="_blank">https://themeforest.net/item/rukada-responsive-bootstrap-4-admin-template/22820477</a>
+                    </td>
+                    <td align="center">95</td>
+                    <td align="center">57s</td>
+                    <td align="center">5.2%</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td colspan="8"><a href="https://codervent.com/rocker-angular/dashboard/v1" target="_blank">https://codervent.com/rocker-angular/dashboard/v1</a>
+                    </td>
+                    <td align="center">102</td>
+                    <td align="center">45s</td>
+                    <td align="center">7.2%</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          </section>
+
+      </main>
+      <footer>Syndash @2020 | Developed By : codervent</footer>
+
+
+
+      <!-- jquery js-->
+      <!-- side-bar -->
+      <script src="https://unpkg.com/@popperjs/core@2"></script>
+      <script>const ANIMATION_DURATION = 300;
+
+        const SIDEBAR_EL = document.getElementById("sidebar");
+
+        const SUB_MENU_ELS = document.querySelectorAll(
+          ".menu > ul > .menu-item.sub-menu"
+        );
+
+        const FIRST_SUB_MENUS_BTN = document.querySelectorAll(
+          ".menu > ul > .menu-item.sub-menu > a"
+        );
+
+        const INNER_SUB_MENUS_BTN = document.querySelectorAll(
+          ".menu > ul > .menu-item.sub-menu .menu-item.sub-menu > a"
+        );
+
+        class PopperObject {
+          instance = null;
+          reference = null;
+          popperTarget = null;
+
+          constructor(reference, popperTarget) {
+            this.init(reference, popperTarget);
+          }
+
+          init(reference, popperTarget) {
+            this.reference = reference;
+            this.popperTarget = popperTarget;
+            this.instance = Popper.createPopper(this.reference, this.popperTarget, {
+              placement: "right",
+              strategy: "fixed",
+              resize: true,
+              modifiers: [
+                {
+                  name: "computeStyles",
+                  options: {
+                    adaptive: false
+                  }
+                },
+                {
+                  name: "flip",
+                  options: {
+                    fallbackPlacements: ["left", "right"]
+                  }
+                }
+              ]
+            });
+
+            document.addEventListener(
+              "click",
+              (e) => this.clicker(e, this.popperTarget, this.reference),
+              false
+            );
+
+            const ro = new ResizeObserver(() => {
+              this.instance.update();
+            });
+
+            ro.observe(this.popperTarget);
+            ro.observe(this.reference);
+          }
+
+          clicker(event, popperTarget, reference) {
+            if (
+              SIDEBAR_EL.classList.contains("collapsed") &&
+              !popperTarget.contains(event.target) &&
+              !reference.contains(event.target)
+            ) {
+              this.hide();
+            }
+          }
+
+          hide() {
+            this.instance.state.elements.popper.style.visibility = "hidden";
+          }
+        }
+
+        class Poppers {
+          subMenuPoppers = [];
+
+          constructor() {
+            this.init();
+          }
+
+          init() {
+            SUB_MENU_ELS.forEach((element) => {
+              this.subMenuPoppers.push(
+                new PopperObject(element, element.lastElementChild)
+              );
+              this.closePoppers();
+            });
+          }
+
+          togglePopper(target) {
+            if (window.getComputedStyle(target).visibility === "hidden")
+              target.style.visibility = "visible";
+            else target.style.visibility = "hidden";
+          }
+
+          updatePoppers() {
+            this.subMenuPoppers.forEach((element) => {
+              element.instance.state.elements.popper.style.display = "none";
+              element.instance.update();
+            });
+          }
+
+          closePoppers() {
+            this.subMenuPoppers.forEach((element) => {
+              element.hide();
+            });
+          }
+        }
+
+        const slideUp = (target, duration = ANIMATION_DURATION) => {
+          const { parentElement } = target;
+          parentElement.classList.remove("open");
+          target.style.transitionProperty = "height, margin, padding";
+          target.style.transitionDuration = `${duration}ms`;
+          target.style.boxSizing = "border-box";
+          target.style.height = `${target.offsetHeight}px`;
+          target.offsetHeight;
+          target.style.overflow = "hidden";
+          target.style.height = 0;
+          target.style.paddingTop = 0;
+          target.style.paddingBottom = 0;
+          target.style.marginTop = 0;
+          target.style.marginBottom = 0;
+          window.setTimeout(() => {
+            target.style.display = "none";
+            target.style.removeProperty("height");
+            target.style.removeProperty("padding-top");
+            target.style.removeProperty("padding-bottom");
+            target.style.removeProperty("margin-top");
+            target.style.removeProperty("margin-bottom");
+            target.style.removeProperty("overflow");
+            target.style.removeProperty("transition-duration");
+            target.style.removeProperty("transition-property");
+          }, duration);
+        };
+        const slideDown = (target, duration = ANIMATION_DURATION) => {
+          const { parentElement } = target;
+          parentElement.classList.add("open");
+          target.style.removeProperty("display");
+          let { display } = window.getComputedStyle(target);
+          if (display === "none") display = "block";
+          target.style.display = display;
+          const height = target.offsetHeight;
+          target.style.overflow = "hidden";
+          target.style.height = 0;
+          target.style.paddingTop = 0;
+          target.style.paddingBottom = 0;
+          target.style.marginTop = 0;
+          target.style.marginBottom = 0;
+          target.offsetHeight;
+          target.style.boxSizing = "border-box";
+          target.style.transitionProperty = "height, margin, padding";
+          target.style.transitionDuration = `${duration}ms`;
+          target.style.height = `${height}px`;
+          target.style.removeProperty("padding-top");
+          target.style.removeProperty("padding-bottom");
+          target.style.removeProperty("margin-top");
+          target.style.removeProperty("margin-bottom");
+          window.setTimeout(() => {
+            target.style.removeProperty("height");
+            target.style.removeProperty("overflow");
+            target.style.removeProperty("transition-duration");
+            target.style.removeProperty("transition-property");
+          }, duration);
+        };
+
+        const slideToggle = (target, duration = ANIMATION_DURATION) => {
+          if (window.getComputedStyle(target).display === "none")
+            return slideDown(target, duration);
+          return slideUp(target, duration);
+        };
+
+        const PoppersInstance = new Poppers();
+
+        /**
+         * wait for the current animation to finish and update poppers position
+         */
+        const updatePoppersTimeout = () => {
+          setTimeout(() => {
+            PoppersInstance.updatePoppers();
+          }, ANIMATION_DURATION);
+        };
+
+        /**
+         * sidebar collapse handler
+         */
+        document.getElementById("btn-collapse").addEventListener("click", () => {
+          SIDEBAR_EL.classList.toggle("collapsed");
+          PoppersInstance.closePoppers();
+          if (SIDEBAR_EL.classList.contains("collapsed"))
+            FIRST_SUB_MENUS_BTN.forEach((element) => {
+              element.parentElement.classList.remove("open");
+            });
+
+          updatePoppersTimeout();
+        });
+
+        /**
+         * sidebar toggle handler (on break point )
+         */
+        document.getElementById("btn-toggle").addEventListener("click", () => {
+          SIDEBAR_EL.classList.toggle("toggled");
+
+          updatePoppersTimeout();
+        });
+
+        /**
+         * toggle sidebar on overlay click
+         */
+        document.getElementById("overlay").addEventListener("click", () => {
+          SIDEBAR_EL.classList.toggle("toggled");
+        });
+
+        const defaultOpenMenus = document.querySelectorAll(".menu-item.sub-menu.open");
+
+        defaultOpenMenus.forEach((element) => {
+          element.lastElementChild.style.display = "block";
+        });
+
+        /**
+         * handle top level submenu click
+         */
+        FIRST_SUB_MENUS_BTN.forEach((element) => {
+          element.addEventListener("click", () => {
+            if (SIDEBAR_EL.classList.contains("collapsed"))
+              PoppersInstance.togglePopper(element.nextElementSibling);
+            else {
+              const parentMenu = element.closest(".menu.open-current-submenu");
+              if (parentMenu)
+                parentMenu
+                  .querySelectorAll(":scope > ul > .menu-item.sub-menu > a")
+                  .forEach(
+                    (el) =>
+                      window.getComputedStyle(el.nextElementSibling).display !==
+                      "none" && slideUp(el.nextElementSibling)
+                  );
+              slideToggle(element.nextElementSibling);
+            }
+          });
+        });
+
+        /**
+         * handle inner submenu click
+         */
+        INNER_SUB_MENUS_BTN.forEach((element) => {
+          element.addEventListener("click", () => {
+            slideToggle(element.nextElementSibling);
+          });
+        });
+      </script>
+      <!-- . -->
+      <!-- fullscreen button -->
+      <script>
+        if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
+          const toggleBtn = document.querySelector('.js-toggle-fullscreen-btn');
+
+          const styleEl = document.createElement('link');
+          styleEl.setAttribute('rel', 'stylesheet');
+          styleEl.setAttribute('href', 'https://codepen.io/tiggr/pen/poJoLyW.css');
+          styleEl.addEventListener('load', function () {
+            toggleBtn.hidden = false;
+          });
+          document.head.appendChild(styleEl);
+
+          toggleBtn.addEventListener('click', function () {
+            if (document.fullscreen) {
+              document.exitFullscreen();
+            } else if (document.webkitFullscreenElement) {
+              document.webkitCancelFullScreen()
+            } else if (document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen();
+            } else {
+              document.documentElement.webkitRequestFullScreen();
+            }
+          });
+
+          document.addEventListener('fullscreenchange', handleFullscreen);
+          document.addEventListener('webkitfullscreenchange', handleFullscreen);
+
+
+          function handleFullscreen() {
+            if (document.fullscreen || document.webkitFullscreenElement) {
+              toggleBtn.classList.add('on');
+              toggleBtn.setAttribute('aria-label', 'Exit fullscreen mode');
+            } else {
+              toggleBtn.classList.remove('on');
+              toggleBtn.setAttribute('aria-label', 'Enter fullscreen mode');
+            }
+          }
+        }
+      </script>
+      <!-- bell -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
+      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomEase.min.js"></script>
+      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.min.js"></script>
+      <script>CustomWiggle.create("wiggle", { wiggles: 4, type: "easeOut" })
+        CustomWiggle.create("bell-circle", { wiggles: 6, type: "easeOut" });
+
+
+        TweenLite.set(".bell", { transformOrigin: "center top" });
+
+        TweenMax.to(".bell", 3, { rotation: -20, ease: "wiggle" })
+        TweenMax.to(".bell-icon__circle", 4.5, { x: -20, ease: "bell-circle" })
+
+      </script>
+      <!-- lang selector -->
+      <script>function Util() { };
+        Util.hasClass = function (el, className) {
+          if (el.classList) return el.classList.contains(className);
+          else return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+        };
+        Util.addClass = function (el, className) {
+          var classList = className.split(' ');
+          if (el.classList) el.classList.add(classList[0]);
+          else if (!Util.hasClass(el, classList[0])) el.className += " " + classList[0];
+          if (classList.length > 1) Util.addClass(el, classList.slice(1).join(' '));
+        };
+        Util.removeClass = function (el, className) {
+          var classList = className.split(' ');
+          if (el.classList) el.classList.remove(classList[0]);
+          else if (Util.hasClass(el, classList[0])) {
+            var reg = new RegExp('(\\s|^)' + classList[0] + '(\\s|$)');
+            el.className = el.className.replace(reg, ' ');
+          }
+          if (classList.length > 1) Util.removeClass(el, classList.slice(1).join(' '));
+        };
+        Util.toggleClass = function (el, className, bool) {
+          if (bool) Util.addClass(el, className);
+          else Util.removeClass(el, className);
+        };
+        Util.setAttributes = function (el, attrs) {
+          for (var key in attrs) {
+            el.setAttribute(key, attrs[key]);
+          }
+        };
+        Util.getChildrenByClassName = function (el, className) {
+          var children = el.children,
+            childrenByClass = [];
+          for (var i = 0; i < el.children.length; i++) {
+            if (Util.hasClass(el.children[i], className)) childrenByClass.push(el.children[i]);
+          }
+          return childrenByClass;
+        };
+        Util.is = function (elem, selector) {
+          if (selector.nodeType) {
+            return elem === selector;
+          }
+          var qa = (typeof (selector) === 'string' ? document.querySelectorAll(selector) : selector),
+            length = qa.length,
+            returnArr = [];
+          while (length--) {
+            if (qa[length] === elem) {
+              return true;
+            }
+          }
+          return false;
+        };
+        Util.setHeight = function (start, to, element, duration, cb) {
+          var change = to - start,
+            currentTime = null;
+          var animateHeight = function (timestamp) {
+            if (!currentTime) currentTime = timestamp;
+            var progress = timestamp - currentTime;
+            var val = parseInt((progress / duration) * change + start);
+            element.style.height = val + "px";
+            if (progress < duration) {
+              window.requestAnimationFrame(animateHeight);
+            } else {
+              cb();
+            }
+          };
+          element.style.height = start + "px";
+          window.requestAnimationFrame(animateHeight);
+        };
+        Util.scrollTo = function (final, duration, cb) {
+          var start = window.scrollY || document.documentElement.scrollTop,
+            currentTime = null;
+          var animateScroll = function (timestamp) {
+            if (!currentTime) currentTime = timestamp;
+            var progress = timestamp - currentTime;
+            if (progress > duration) progress = duration;
+            var val = Math.easeInOutQuad(progress, start, final - start, duration);
+            window.scrollTo(0, val);
+            if (progress < duration) {
+              window.requestAnimationFrame(animateScroll);
+            } else {
+              cb && cb();
+            }
+          };
+          window.requestAnimationFrame(animateScroll);
+        };
+        Util.moveFocus = function (element) {
+          if (!element) element = document.getElementsByTagName("body")[0];
+          element.focus();
+          if (document.activeElement !== element) {
+            element.setAttribute('tabindex', '-1');
+            element.focus();
+          }
+        };
+        Util.getIndexInArray = function (array, el) {
+          return Array.prototype.indexOf.call(array, el);
+        };
+        Util.cssSupports = function (property, value) {
+          if ('CSS' in window) {
+            return CSS.supports(property, value);
+          } else {
+            var jsProperty = property.replace(/-([a-z])/g, function (g) {
+              return g[1].toUpperCase();
+            });
+            return jsProperty in document.body.style;
+          }
+        };
+        Util.extend = function () {
+          var extended = {};
+          var deep = false;
+          var i = 0;
+          var length = arguments.length;
+          if (Object.prototype.toString.call(arguments[0]) === '[object Boolean]') {
+            deep = arguments[0];
+            i++;
+          }
+          var merge = function (obj) {
+            for (var prop in obj) {
+              if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+                if (deep && Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+                  extended[prop] = extend(true, extended[prop], obj[prop]);
+                } else {
+                  extended[prop] = obj[prop];
+                }
+              }
+            }
+          };
+          for (; i < length; i++) {
+            var obj = arguments[i];
+            merge(obj);
+          }
+          return extended;
+        };
+        if (!Element.prototype.matches) {
+          Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+        }
+        if (!Element.prototype.closest) {
+          Element.prototype.closest = function (s) {
+            var el = this;
+            if (!document.documentElement.contains(el)) return null;
+            do {
+              if (el.matches(s)) return el;
+              el = el.parentElement || el.parentNode;
+            } while (el !== null && el.nodeType === 1);
+            return null;
+          };
+        }
+        if (typeof window.CustomEvent !== "function") {
+          function CustomEvent(event, params) {
+            params = params || {
+              bubbles: false,
+              cancelable: false,
+              detail: undefined
+            };
+            var evt = document.createEvent('CustomEvent');
+            evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+            return evt;
+          }
+          CustomEvent.prototype = window.Event.prototype;
+          window.CustomEvent = CustomEvent;
+        }
+        Math.easeInOutQuad = function (t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return c / 2 * t * t + b;
+          t--;
+          return -c / 2 * (t * (t - 2) - 1) + b;
+        };
+        /**/
+        (function () {
+          var LanguagePicker = function (element) {
+            this.element = element;
+            this.select = this.element.getElementsByTagName('select')[0];
+            this.options = this.select.getElementsByTagName('option');
+            this.selectedOption = getSelectedOptionText(this);
+            this.pickerId = this.select.getAttribute('id');
+            this.trigger = false;
+            this.dropdown = false;
+            this.firstLanguage = false;
+            // dropdown arrow inside the button element
+            this.svgPath = '<svg viewBox="0 0 16 16"><polygon points="3,5 8,11 13,5 "></polygon></svg>';
+            initLanguagePicker(this);
+            initLanguagePickerEvents(this);
+          };
+
+          function initLanguagePicker(picker) {
+            // create the HTML for the custom dropdown element
+            picker.element.insertAdjacentHTML('beforeend', initButtonPicker(picker) + initListPicker(picker));
+
+            // save picker elements
+            picker.dropdown = picker.element.getElementsByClassName('language-picker__dropdown')[0];
+            picker.firstLanguage = picker.dropdown.getElementsByClassName('language-picker__item')[0];
+            picker.trigger = picker.element.getElementsByClassName('language-picker__button')[0];
+          };
+
+          function initLanguagePickerEvents(picker) {
+            // make sure to add the icon class to the arrow dropdown inside the button element
+            Util.addClass(picker.trigger.getElementsByTagName('svg')[0], 'icon');
+            // language selection in dropdown
+            // ⚠️ Important: you need to modify this function in production
+            initLanguageSelection(picker);
+
+            // click events
+            picker.trigger.addEventListener('click', function () {
+              toggleLanguagePicker(picker, false);
+            });
+          };
+
+          function toggleLanguagePicker(picker, bool) {
+            var ariaExpanded;
+            if (bool) {
+              ariaExpanded = bool;
+            } else {
+              ariaExpanded = picker.trigger.getAttribute('aria-expanded') == 'true' ? 'false' : 'true';
+            }
+            picker.trigger.setAttribute('aria-expanded', ariaExpanded);
+            if (ariaExpanded == 'true') {
+              picker.firstLanguage.focus(); // fallback if transition is not supported
+              picker.dropdown.addEventListener('transitionend', function cb() {
+                picker.firstLanguage.focus();
+                picker.dropdown.removeEventListener('transitionend', cb);
+              });
+            }
+          };
+
+          function checkLanguagePickerClick(picker, target) { // if user clicks outside the language picker -> close it
+            if (!picker.element.contains(target)) toggleLanguagePicker(picker, 'false');
+          };
+
+          function moveFocusToPickerTrigger(picker) {
+            if (picker.trigger.getAttribute('aria-expanded') == 'false') return;
+            if (document.activeElement.closest('.language-picker__dropdown') == picker.dropdown) picker.trigger.focus();
+          };
+
+          function initButtonPicker(picker) { // create the button element -> picker trigger
+            // check if we need to add custom classes to the button trigger
+            var customClasses = picker.element.getAttribute('data-trigger-class') ? ' ' + picker.element.getAttribute('data-trigger-class') : '';
+
+            var button = '<button class="language-picker__button' + customClasses + '" aria-label="' + picker.select.value + ' ' + picker.element.getElementsByTagName('label')[0].innerText + '" aria-expanded="false" aria-contols="' + picker.pickerId + '-dropdown">';
+            button = button + '<span aria-hidden="true" class="language-picker__label language-picker__flag language-picker__flag--' + picker.select.value + '"><em>' + picker.selectedOption + '</em>';
+            button = button + picker.svgPath + '</span>';
+            return button + '</button>';
+          };
+
+          function initListPicker(picker) { // create language picker dropdown
+            var list = '<div class="language-picker__dropdown" aria-describedby="' + picker.pickerId + '-description" id="' + picker.pickerId + '-dropdown">';
+            list = list + '<p class="sr-only" id="' + picker.pickerId + '-description">' + picker.element.getElementsByTagName('label')[0].innerText + '</p>';
+            list = list + '<ul class="language-picker__list" role="listbox">';
+            for (var i = 0; i < picker.options.length; i++) {
+              var selected = picker.options[i].hasAttribute('selected') ? ' aria-selected="true"' : '',
+                language = picker.options[i].getAttribute('lang');
+              list = list + '<li><a lang="' + language + '" hreflang="' + language + '" href="' + getLanguageUrl(picker.options[i]) + '"' + selected + ' role="option" data-value="' + picker.options[i].value + '" class="language-picker__item language-picker__flag language-picker__flag--' + picker.options[i].value + '"><span>' + picker.options[i].text + '</span></a></li>';
+            };
+            return list;
+          };
+
+          function getSelectedOptionText(picker) { // used to initialize the label of the picker trigger button
+            var label = '';
+            if ('selectedIndex' in picker.select) {
+              label = picker.options[picker.select.selectedIndex].text;
+            } else {
+              label = picker.select.querySelector('option[selected]').text;
+            }
+            return label;
+          };
+
+          function getLanguageUrl(option) {
+            // ⚠️ Important: You should replace this return value with the real link to your website in the selected language
+            // option.value gives you the value of the language that you can use to create your real url (e.g, 'english' or 'italiano')
+            return '#';
+          };
+
+          function initLanguageSelection(picker) {
+            picker.element.getElementsByClassName('language-picker__list')[0].addEventListener('click', function (event) {
+              var language = event.target.closest('.language-picker__item');
+              if (!language) return;
+
+              if (language.hasAttribute('aria-selected') && language.getAttribute('aria-selected') == 'true') {
+                // selecting the same language
+                event.preventDefault();
+                picker.trigger.setAttribute('aria-expanded', 'false'); // hide dropdown
+              } else {
+                // ⚠️ Important: this 'else' code needs to be removed in production. 
+                // The user has to be redirected to the new url -> nothing to do here
+                event.preventDefault();
+                picker.element.getElementsByClassName('language-picker__list')[0].querySelector('[aria-selected="true"]').removeAttribute('aria-selected');
+                language.setAttribute('aria-selected', 'true');
+                picker.trigger.getElementsByClassName('language-picker__label')[0].setAttribute('class', 'language-picker__label language-picker__flag language-picker__flag--' + language.getAttribute('data-value'));
+                picker.trigger.getElementsByClassName('language-picker__label')[0].getElementsByTagName('em')[0].innerText = language.innerText;
+                picker.trigger.setAttribute('aria-expanded', 'false');
+              }
+            });
+          };
+
+          //initialize the LanguagePicker objects
+          var languagePicker = document.getElementsByClassName('js-language-picker');
+          if (languagePicker.length > 0) {
+            var pickerArray = [];
+            for (var i = 0; i < languagePicker.length; i++) {
+              (function (i) { pickerArray.push(new LanguagePicker(languagePicker[i])); })(i);
+            }
+
+            // listen for key events
+            window.addEventListener('keyup', function (event) {
+              if (event.keyCode && event.keyCode == 27 || event.key && event.key.toLowerCase() == 'escape') {
+                // close language picker on 'Esc'
+                pickerArray.forEach(function (element) {
+                  moveFocusToPickerTrigger(element); // if focus is within dropdown, move it to dropdown trigger
+                  toggleLanguagePicker(element, 'false'); // close dropdown
+                });
+              }
+            });
+            // close language picker when clicking outside it
+            window.addEventListener('click', function (event) {
+              pickerArray.forEach(function (element) {
+                checkLanguagePickerClick(element, event.target);
+              });
+            });
+          }
+        }());</script>
+
+
+      <!-- chart -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+      <script>
+        var ctx = document.getElementById('myChart').getContext("2d");
+
+        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        gradientStroke.addColorStop(0, '#6f42c1');
+        gradientStroke.addColorStop(1, '#6f42c1');
+
+        var gradientFill = ctx.createLinearGradient(500, 0, 100, 0);
+        gradientFill.addColorStop(0, "#dbd0ee");
+        gradientFill.addColorStop(1, "#dbd0ee");
+
+        var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"],
+            datasets: [{
+
+              borderColor: gradientStroke,
+              pointHoverBorderWidth: 10,
+              pointRadius: 5,
+              fill: true,
+              backgroundColor: gradientFill,
+              borderWidth: 4,
+              data: [0, 60, 50, 120, 60, 100, 30, 0]
+            }]
+          },
+          options: {
+            legend: {
+              position: "bottom"
+
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "transparent",
+                  fontStyle: "bold",
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  padding: 20
+                },
+                gridLines: {
+                  drawTicks: false,
+                  display: false
+                }
+
+              }],
+              xAxes: [{
+                gridLines: {
+                  drawTicks: false,
+                  display: false
+                },
+                ticks: {
+                  padding: 20,
+                  fontColor: "transparent",
+                }
+              }]
+            }
+          }
+        });
+      </script>
+      <script>
+        var ctx = document.getElementById('myChart1').getContext("2d");
+
+        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        gradientStroke.addColorStop(0, '#32ab13');
+        gradientStroke.addColorStop(1, '#32ab13');
+
+        var gradientFill = ctx.createLinearGradient(500, 0, 100, 0);
+        gradientFill.addColorStop(0, "#d6eed0");
+        gradientFill.addColorStop(1, "#d6eed0");
+
+        var myChart1 = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"],
+            datasets: [{
+
+              borderColor: gradientStroke,
+              pointHoverBorderWidth: 10,
+              pointRadius: 5,
+              fill: true,
+              backgroundColor: gradientFill,
+              borderWidth: 4,
+              data: [0, 60, 50, 120, 60, 100, 30, 0]
+            }]
+          },
+          options: {
+            legend: {
+              position: "bottom"
+
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "transparent",
+                  fontStyle: "bold",
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  padding: 20
+                },
+                gridLines: {
+                  drawTicks: false,
+                  display: false
+                }
+
+              }],
+              xAxes: [{
+                gridLines: {
+                  drawTicks: false,
+                  display: false
+                },
+                ticks: {
+                  padding: 20,
+                  fontColor: "transparent",
+                }
+              }]
+            }
+          }
+        });
+      </script>
+      <script>
+        var ctx = document.getElementById('myChart2').getContext("2d");
+
+        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        gradientStroke.addColorStop(0, '#f02769');
+        gradientStroke.addColorStop(1, '#f02769');
+
+        var gradientFill = ctx.createLinearGradient(500, 0, 100, 0);
+        gradientFill.addColorStop(0, "#fddce7");
+        gradientFill.addColorStop(1, "#fddce7");
+
+        var myChart2 = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"],
+            datasets: [{
+
+              borderColor: gradientStroke,
+              pointHoverBorderWidth: 10,
+              pointRadius: 5,
+              fill: true,
+              backgroundColor: gradientFill,
+              borderWidth: 4,
+              data: [0, 60, 50, 120, 60, 100, 30, 0]
+            }]
+          },
+          options: {
+            legend: {
+              position: "bottom"
+
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "transparent",
+
+                  beginAtZero: false,
+                  maxTicksLimit: 5,
+                  padding: 20
+                },
+                gridLines: {
+                  drawTicks: false,
+                  display: false
+                }
+
+              }],
+              xAxes: [{
+                gridLines: {
+                  drawTicks: false,
+                  display: false
+                },
+                ticks: {
+                  padding: 20,
+                  fontColor: "transparent",
+                }
+              }]
+            }
+          }
+        });
+      </script>
+
+      <!-- chart section -->
+      <script>
+        window.Promise ||
+          document.write(
+            '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+          )
+        window.Promise ||
+          document.write(
+            '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+          )
+        window.Promise ||
+          document.write(
+            '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+          )
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/react@16.12/umd/react.production.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/react-dom@16.12/umd/react-dom.production.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prop-types@15.7.2/prop-types.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <script src="https://cdn.jsdelivr.net/npm/react-apexcharts@1.3.6/dist/react-apexcharts.iife.min.js"></script>
+      <script type="text/babel">
+        class ApexChart extends React.Component {
+          constructor(props) {
+            super(props);
+
+            this.state = {
+
+              series: [
+                {
+                  data: [
+                    {
+                      x: 'Feb',
+                      y: [3500, 9500]
+                    },
+                    {
+                      x: 'March',
+                      y: [3200, 8000]
+                    },
+                    {
+                      x: 'April',
+                      y: [3000, 9000]
+                    },
+                    {
+                      x: 'May',
+                      y: [3100, 8800]
+                    },
+                    {
+                      x: 'June',
+                      y: [3500, 9100]
+                    },
+                    {
+                      x: 'July',
+                      y: [3100, 8900]
+                    },
+                    {
+                      x: 'Aug',
+                      y: [3500, 9600]
+                    }
+
+
+                  ]
+                }
+              ],
+              options: {
+                chart: {
+                  height: 350,
+                  type: 'rangeBar',
+                  zoom: {
+                    enabled: false
+                  }
+                },
+                plotOptions: {
+                  bar: {
+                    isDumbbell: false,
+                    columnWidth: 7,
+
+                    dumbbellColors: [['#6f42c1', '#f02769']]
+                  }
+                },
+                legend: {
+                  show: false,
+                  showForSingleSeries: true,
+                  position: 'top',
+                  horizontalAlign: 'left',
+                  customLegendItems: ['New Visitors', 'Returning Visitors']
+                },
+                fill: {
+                  type: 'gradient',
+                  gradient: {
+                    type: 'vertical',
+                    gradientToColors: ['#f02769'],
+                    inverseColors: true,
+                    stops: [0, 100]
+                  }
+                },
+                grid: {
+                  xaxis: {
+                    lines: {
+                      show: false
+                    }
+                  },
+                  yaxis: {
+                    lines: {
+                      show: false
+                    }
+                  }
+                },
+                xaxis: {
+                  tickPlacement: 'on'
+                }
+              },
+
+
+            };
+          }
+
+
+
+          render() {
+            return (
+              <div>
+                <div id="bar-chart">
+                  <ReactApexChart options={this.state.options} series={this.state.series} type="rangeBar" height={350} />
+                </div>
+                <div id="html-dist"></div>
+              </div>
+            );
+          }
+        }
+
+        const domContainer = document.querySelector('#bars');
+        ReactDOM.render(React.createElement(ApexChart), domContainer);
+      </script>
+
+      <script type="text/babel">
+        class ApexChart extends React.Component {
+          constructor(props) {
+            super(props);
+
+            this.state = {
+
+              series: [30, 40, 30],
+              options: {
+                chart: {
+                  type: 'donut',
+                },
+
+
+              },
+
+
+            };
+          }
+
+
+
+          render() {
+            return (
+              <div>
+                <div id="pie-chart">
+                  <ReactApexChart options={this.state.options} series={this.state.series} type="donut" />
+                </div>
+                <div id="html-dist"></div>
+              </div>
+            );
+          }
+        }
+
+        const domContainer = document.querySelector('#pie');
+        ReactDOM.render(React.createElement(ApexChart), domContainer);
+      </script>
+
+
+
+      <script type="text/babel">
+        class ApexChart extends React.Component {
+          constructor(props) {
+            super(props);
+
+            this.state = {
+
+              series: [25, 65, 10],
+              options: {
+                chart: {
+                  width: 380,
+                  type: 'pie',
+                },
+                labels: [''],
+                responsive: [{
+                  breakpoint: 480,
+                  options: {
+                    chart: {
+                      width: 200
+                    },
+                    legend: {
+                      position: 'bottom'
+                    }
+                  }
+                }]
+              },
+
+
+            };
+          }
+
+
+
+          render() {
+            return (
+              <div>
+                <div id="chart">
+                  <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={447} />
+                </div>
+                <div id="html-dist"></div>
+              </div>
+            );
+          }
+        }
+
+        const domContainer = document.querySelector('#app1');
+        ReactDOM.render(React.createElement(ApexChart), domContainer);
+
+      </script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://jscharting.com/JSC15/jscharting.js"></script>
+<script>
+  $('#chartDiv').JSC({
+  mapping: {
+    referenceLayers: 'World',
+    projection: false
+  },
+  type: 'map',
+  height: 480,
+  legendVisible: false,
+  chartArea: {
+    fill: '#FFFFFF'
+  },
+  defaultPointOutlineWidth: 0,
+  series: [{
+    defaultPoint: {
+      color: 'rgb(103, 58, 183)'
+    },
+    map: 'Continent:North America'
+  }, {
+    defaultPoint: {
+      color: 'rgb(103, 58, 183)'
+    },
+    map: 'Continent:South America'
+  }, {
+    defaultPoint: {
+      color: 'rgb(103, 58, 183)'
+    },
+    map: 'Continent:Europe'
+  }, {
+    defaultPoint: {
+      color: 'rgb(103, 58, 183)'
+    },
+    map: 'Continent:Asia'
+  }, {
+    defaultPoint: {
+      color: 'rgb(103, 58, 183)'
+    },
+    map: 'Continent:Africa'
+  }, {
+    defaultPoint: {
+      color: 'rgb(103, 58, 183)'
+    },
+    map: 'Continent:Oceania'
+  }],
+  toolbarVisible: false
+
+})
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+.slider {
+  --slider-padding: 5px;
+  --slider-column-gap: 5px;
+  --slide-width: 10%;
+  --slide-min-width: 10%;
+  position: relative;
+  overflow: hidden;
+}
+.slider__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-inline: 5px;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  padding: 0;
+  margin-right: -5px;
+  scrollbar-width: none;
+}
+.slider__track > * {
+  flex: 0 0 10%;
+  min-width: 10%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding-right: 5px;
+}
+.slider__track::-webkit-scrollbar {
+  display: none;
+}
+.slider__buttons {
+  margin-top: 1rem;
+}
+.slider__buttons [disabled] {
+  opacity: 0.5;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+  background: transparent;
+  color: transparent;
+  font-size: 3rem;
+  font-weight: 700;
+}/*# sourceMappingURL=slider.css.map */
